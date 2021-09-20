@@ -26,16 +26,16 @@ def main():
     sorted_drinks = collections.defaultdict(list)
     for drink in drinks:
         sorted_drinks[drink['Категория']].append(drink)
-    sorted_drinks = dict(sorted(sorted_drinks.items()))
+    dict_sorted_drinks = dict(sorted(sorted_drinks.items()))
 
     now = datetime.datetime.today()
     winery_foundation = 1920
     winary_age = now.year - winery_foundation
 
     rendered_page = template.render(
-        drinks=sorted_drinks,
+        drinks=dict_sorted_drinks,
         winary_age=winary_age,
-        age_word=age_word(winary_age),
+        age_word=get_year_word(winary_age),
     )
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
