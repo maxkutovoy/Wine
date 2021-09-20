@@ -6,7 +6,7 @@ import pandas as pd
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-def age_word(age):
+def get_year_word(age):
     if age % 100 in range(5, 21):
         return 'лет'
     elif age % 10 == 1:
