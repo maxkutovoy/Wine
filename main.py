@@ -1,8 +1,8 @@
-import datetime
 import collections
-import pandas as pd
-
+import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+import pandas as pd
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
