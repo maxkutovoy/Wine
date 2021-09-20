@@ -19,7 +19,8 @@ downloads/
 eggs/
 .eggs/
 lib/
-lib64/
+include
+lib64
 parts/
 sdist/
 var/
@@ -33,6 +34,7 @@ argparse
 os
 requests
 .env
+pyvenv.cfg
 
 
 # PyInstaller
@@ -99,6 +101,9 @@ ENV/
 env.bak/
 venv.bak/
 myenv/
+bin
+.cfg
+index.html
 
 # Spyder project settings
 .spyderproject
