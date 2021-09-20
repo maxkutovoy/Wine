@@ -28,9 +28,9 @@ def main():
         sorted_drinks[drink['Категория']].append(drink)
     dict_sorted_drinks = dict(sorted(sorted_drinks.items()))
 
-    now = datetime.datetime.today()
-    winery_foundation = 1920
-    winary_age = now.year - winery_foundation
+    today_date = datetime.datetime.today()
+    winery_year_foundation = 1920
+    winary_age = today_date.year - winery_year_foundation
 
     rendered_page = template.render(
         drinks=dict_sorted_drinks,
