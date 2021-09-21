@@ -23,17 +23,17 @@ def main():
 
     template = env.get_template('template.html')
     drinks = pd.read_excel('wine.xlsx').fillna('').to_dict(orient='records')
-    sorted_drinks = collections.defaultdict(list)
+    grouped_drinks = collections.defaultdict(list)
     for drink in drinks:
-        sorted_drinks[drink['Категория']].append(drink)
-    dict_sorted_drinks = dict(sorted(sorted_drinks.items()))
+        grouped_drinks[drink['Категория']].append(drink)
+    sorted_drinks = dict(sorted(grouped_drinks.items()))
 
     today_date = datetime.datetime.today()
-    winery_year_foundation = 1920
-    winary_age = today_date.year - winery_year_foundation
+    winery_foundation_year = 1920
+    winary_age = today_date.year - winery_foundation_year
 
     rendered_page = template.render(
-        drinks=dict_sorted_drinks,
+        all_drinks=sorted_drinks,
         winary_age=winary_age,
         age_word=get_year_word(winary_age),
     )
@@ -42,6 +42,7 @@ def main():
 
     server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
     server.serve_forever()
+
 
 if __name__ == '__main__':
     main()
